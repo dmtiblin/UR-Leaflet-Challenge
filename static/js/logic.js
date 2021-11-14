@@ -39,28 +39,41 @@ d3.json(url).then(function(response) {
         //L.geoJson(feature).addTo(map)
         //createfunction to get marker style
         
+        //create marker size based on magnituted of quake 1-10
         var size = "";
-        if(feature.properties.mag > 5) {
-          size = 100000
+        if(feature.properties.mag  <2 ) {
+          size = 10000
         }
-        else if (feature.properties.mag > 4) {
-          size = 50000
-        };
+        else if (feature.properties.mag <4) {
+          size = 20000}
+        else if (feature.properties.mag <6) {
+          size = 40000}
+        else if (feature.properties.mag <7) {
+          size = 60000}
+        else if (feature.properties.mag <8) {
+          size = 80000}
+        else if (feature.properties.mag <9) {
+          size = 100000}
+        else {
+          size = 120000}
+        ;
 
+        //create color based on depth of quake
         var color = "";
-        if(feature.geometry.coordinates[2] <20) {
+        if(feature.geometry.coordinates[2] <35) {
+          color = "#FF7F50"}
+        else if(feature.geometry.coordinates[2] < 70) {
           color = "#FF4040"}
-        else if(feature.geometry.coordinates[2] < 50) {
-          color = "#EE3B3B"}
-        else if(feature.geometry.coordinates[2] < 100) {
+        else if(feature.geometry.coordinates[2] < 185) {
           color = "#CD3333"}
         else if(feature.geometry.coordinates[2] < 300) {
-          color = "#A52A2A"}
+          color = "#8B2323"}
         else if (feature.geometry.coordinates[2] > 300) {
-          color = "#8B2323"
+          color = "black"
         };
 
-        L.circle([feature.geometry.coordinates[1],feature.geometry.coordinates[0]],{radius: size, color: color,fillColor: color, fillOpacity: .4}).bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)} <br> magnitude:  ${feature.properties.mag} </p>`).addTo(map);
+        L.circle([feature.geometry.coordinates[1],feature.geometry.coordinates[0]],{radius: size, color: "black",fillColor: color, fillOpacity: 1, weight: .5})
+        .bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)} <br> magnitude:  ${feature.properties.mag} </p>`).addTo(map);
 });
 });
 
