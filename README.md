@@ -1,5 +1,7 @@
 # Leaflet Homework: Visualizing Data with Leaflet
 
+![1-Final-Image](Images/Screenshot-Example-Completed-Map2.png)
+
 ## Background
 
 ### 1. Choose Data Set
