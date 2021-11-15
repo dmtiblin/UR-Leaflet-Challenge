@@ -40,24 +40,28 @@ d3.json(url).then(function(response) {
         //createfunction to get marker style
         
         //create marker size based on magnituted of quake 1-10
+        //var size = "";
+        //if(feature.properties.mag  <2 ) {
+        //   size = 10000 
+        // }
+        // else if (feature.properties.mag <4) {
+        //   size = 20000}
+        // else if (feature.properties.mag <6) {
+        //   size = 40000}
+        // else if (feature.properties.mag <7) {
+        //   size = 60000}
+        // else if (feature.properties.mag <8) {
+        //   size = 80000}
+        // else if (feature.properties.mag <9) {
+        //   size = 100000}
+        // else {
+        //   size = 120000}
+        // ;
         var size = "";
         if(feature.properties.mag  <2 ) {
-          size = 10000
-        }
-        else if (feature.properties.mag <4) {
-          size = 20000}
-        else if (feature.properties.mag <6) {
-          size = 40000}
-        else if (feature.properties.mag <7) {
-          size = 60000}
-        else if (feature.properties.mag <8) {
-          size = 80000}
-        else if (feature.properties.mag <9) {
-          size = 100000}
-        else {
-          size = 120000}
-        ;
-
+          size = 10000}
+        else size = ((feature.properties.mag * 50)**2)
+          
         //create color based on depth of quake
         var color = "";
         if(feature.geometry.coordinates[2] <35) {
@@ -73,7 +77,7 @@ d3.json(url).then(function(response) {
         };
 
         L.circle([feature.geometry.coordinates[1],feature.geometry.coordinates[0]],{radius: size, color: "black",fillColor: color, fillOpacity: 1, weight: .5})
-        .bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)} <br> magnitude:  ${feature.properties.mag} </p>`).addTo(map);
+        .bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p> <p>Magnitude:  ${feature.properties.mag} <br> Depth:  ${feature.geometry.coordinates[2]} </p>`).addTo(map);
 });
 });
 
@@ -84,8 +88,6 @@ d3.json(url).then(function(response) {
 // var overlayMaps = {
 //   "Bike Stations": bikeStations
 // };
-
-
 
 // Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
 // L.control.layers(baseMaps, overlayMaps, {
