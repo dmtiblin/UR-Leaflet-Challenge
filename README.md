@@ -6,10 +6,10 @@
 
 The USGS provides earthquake data in a number of different formats, updated every 5 minutes. Visit the USGS GeoJSON Feed page and pick a data set to visualize.
 
-![1-Richter](Images/richter_scale.jpg)
-
 Creator Notes: 
 * The data chosen was all M1.0+ Earthquakes world-wide from the last week. M1.0 to M2.0 are measurable but rarely noticed by humans. 
+
+![1-Richter](Images/richter_scale.jpg)
 
 ### 2. Import & Visualize the Data
 
