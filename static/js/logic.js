@@ -89,7 +89,26 @@ d3.json(url).then(function(response) {
 //   "Bike Stations": bikeStations
 // };
 
-// Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
-// L.control.layers(baseMaps, overlayMaps, {
-//   collapsed: false
-// }).addTo(map);
+//Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
+L.control.layers(baseMaps).addTo(map);
+
+var legend = L.control({position: 'bottomright'})
+legend.onAdd= function() {
+  var div = L.DomUtil.create("div", "info legend");
+  var grades = ["<35","35 - 70", "70 - 185", "185 - 300", ">300" ]
+    colors = ["#FF7F50", "#FF4040","#CD3333","#8B2323","black" ]
+    labels = ["shallow", "moderately deep","deep","very deep", "deepest"]
+
+    var legendInfo = "<h3>Earthquake Depth (km)</h3>" 
+  div.innerHTML = legendInfo;
+
+  // loop through our density intervals and generate a label with a colored square for each interval
+  for (var i = 0; i < grades.length; i++) {
+    div.innerHTML +=
+      "<ul>" + '<i style="background:' + colors[i] + '"></i> ' +
+        labels[i] +" " + grades[i] + "</ul>"}
+  return div;
+
+};
+legend.addTo(map);
+
