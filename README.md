@@ -1,4 +1,4 @@
-# Leaflet Homework: Visualizing Data with Leaflet
+# Visualizing Data with Leaflet
 
 ![1-Final-Image](Images/Screenshot-Example-Completed-Map2.png)
 
@@ -8,7 +8,7 @@
 
 The USGS provides earthquake data in a number of different formats, updated every 5 minutes. Visit the USGS GeoJSON Feed page and pick a data set to visualize.
 
-Creator Notes: 
+#### Author Notes: 
 * The data chosen was all M1.0+ Earthquakes world-wide from the last week. M1.0 to M2.0 earthquakes are measurable using instruments but rarely noticed by humans. 
 
 ![1-Richter](Images/richter_scale.jpg)
@@ -25,8 +25,8 @@ Create a map using Leaflet that plots all of the earthquakes from your data set 
 
 
 * Create a legend that will provide context for your map data.
-
-Creator Notes:
+* 
+#### Author Notes: 
 * The legend for this visualization has been based off of the following information from the USGS: Shallow earthquakes are between 0 and 70 km deep; intermediate earthquakes, 70 - 300 km deep; and deep earthquakes, 300 - 700 km deep
 
 
