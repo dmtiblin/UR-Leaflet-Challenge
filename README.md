@@ -1,6 +1,8 @@
-# Visualizing Data with Leaflet
+# Visualizing Earthquake Data with Leaflet
 
 ![1-Final-Image](Images/Screenshot-Example-Completed-Map2.png)
+
+### A more interactive version of this map is avalable [here!](https://dmtiblin.github.io/UR-Leaflet-Challenge/)
 
 ## Background
 
